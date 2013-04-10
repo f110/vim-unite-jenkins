@@ -1,5 +1,62 @@
 {
    "modules" : {
+      "Class::Accessor::Lite" : {
+         "dist" : "Class-Accessor-Lite-0.05",
+         "mymeta" : {
+            "abstract" : "a minimalistic variant of Class::Accessor",
+            "author" : [
+               "Copyright (C) 2008 - 2010 Kazuho Oku"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Install version 1.00, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Class-Accessor-Lite",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "6.42"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {}
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.05"
+         },
+         "name" : "Class::Accessor::Lite",
+         "pathname" : "K/KA/KAZUHO/Class-Accessor-Lite-0.05.tar.gz",
+         "provides" : {
+            "Class::Accessor::Lite" : {
+               "file" : "Class/Accessor/Lite.pm",
+               "version" : "0.05"
+            }
+         },
+         "target" : "Class::Accessor::Lite",
+         "version" : "0.05"
+      },
       "Class::Inspector" : {
          "dist" : "Class-Inspector-1.28",
          "mymeta" : {
@@ -2142,6 +2199,97 @@
          },
          "target" : "Plack",
          "version" : "1.0022"
+      },
+      "Router::Simple" : {
+         "dist" : "Router-Simple-0.14",
+         "mymeta" : {
+            "abstract" : "simple HTTP router",
+            "author" : [
+               "Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Router-Simple",
+            "no_index" : {
+               "directory" : [
+                  "inc",
+                  "t",
+                  "xt"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "Test::More" : "0.98"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "Module::Build" : "0.38"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Class::Accessor::Lite" : "0.05",
+                     "List::Util" : "0",
+                     "Test::More" : "0.88",
+                     "parent" : "0",
+                     "perl" : "5.00800"
+                  }
+               }
+            },
+            "provides" : {
+               "Router::Simple" : {
+                  "file" : "lib/Router/Simple.pm",
+                  "version" : "0.14"
+               },
+               "Router::Simple::Declare" : {
+                  "file" : "lib/Router/Simple/Declare.pm",
+                  "version" : "0"
+               },
+               "Router::Simple::Route" : {
+                  "file" : "lib/Router/Simple/Route.pm",
+                  "version" : "0"
+               },
+               "Router::Simple::SubMapper" : {
+                  "file" : "lib/Router/Simple/SubMapper.pm",
+                  "version" : "0"
+               }
+            },
+            "release_status" : "stable",
+            "resources" : {
+               "license" : [
+                  "http://dev.perl.org/licenses/"
+               ]
+            },
+            "version" : "0.14"
+         },
+         "name" : "Router::Simple",
+         "pathname" : "T/TO/TOKUHIROM/Router-Simple-0.14.tar.gz",
+         "provides" : {
+            "Router::Simple" : {
+               "file" : "Router/Simple.pm",
+               "version" : "0.14"
+            },
+            "Router::Simple::Declare" : {
+               "file" : "Router/Simple/Declare.pm"
+            },
+            "Router::Simple::Route" : {
+               "file" : "Router/Simple/Route.pm"
+            },
+            "Router::Simple::SubMapper" : {
+               "file" : "Router/Simple/SubMapper.pm"
+            }
+         },
+         "target" : "Router::Simple",
+         "version" : "0.14"
       },
       "Stream::Buffered" : {
          "dist" : "Stream-Buffered-0.02",
