@@ -1,6 +1,5 @@
 "required
     "vimproc
-    "curl
 
 call unite#util#set_default('g:unite_source_jenkins_server_host', 'localhost')
 call unite#util#set_default('g:unite_source_jenkins_server_port', '9002')
@@ -41,13 +40,11 @@ function! s:source.async_gather_candidates(args, context)
         let a:context.source__res .= socket.read()
         return []
     endif
-
     let a:context.is_async = 0
 
     let data = http#request#get_content(a:context.source__res)
 
-    let done_message = 'got a project list'
-    call unite#print_source_message(done_message, s:source.name)
+    call unite#print_source_message('got a project list', s:source.name)
     let project_list = eval(data)
 
     return map(project_list, '{

@@ -7,8 +7,6 @@ let s:source = {
             \ 'variables': {
             \       'jenkins_server_host': g:unite_source_jenkins_server_host,
             \       'jenkins_server_port': g:unite_source_jenkins_server_port,
-            \       'relay_server_host': g:unite_source_jenkins_relay_server_host,
-            \       'relay_server_port': g:unite_source_jenkins_relay_server_port,
             \   }
             \ }
 

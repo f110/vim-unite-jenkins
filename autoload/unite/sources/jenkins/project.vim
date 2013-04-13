@@ -1,7 +1,7 @@
 "required
     "vimproc
-    "curl
 
+call unite#util#set_default('g:unite_source_jenkins_job_source', 'jenkins/job')
 let s:source = {
             \ 'name': 'jenkins/project',
             \ 'hooks': {},
@@ -9,6 +9,7 @@ let s:source = {
             \ 'variables': {
             \       'relay_server_host': g:unite_source_jenkins_relay_server_host,
             \       'relay_server_port': g:unite_source_jenkins_relay_server_port,
+            \       'job_source': g:unite_source_jenkins_job_source,
             \   }
             \ }
 
@@ -26,7 +27,7 @@ endfunction
 
 function! s:source.hooks.on_syntax(args, cocntext)
     syntax match uniteSource__Jenkins_Success /\[SUCCESS]/ contained containedin=uniteSource__Jenkins
-    syntax match uniteSource__Jenkins_Fail /\[FAIL]/ contained containedin=uniteSource__Jenkins
+    syntax match uniteSource__Jenkins_Fail /\[FAILURE]/ contained containedin=uniteSource__Jenkins
     highlight link uniteSource__Jenkins_Fail Error
     highlight link uniteSource__Jenkins_Success Statement
 endfunction
@@ -61,6 +62,7 @@ function! s:source.async_gather_candidates(args, context)
     let data = http#request#get_content(a:context.source__res)
     let job_list = eval(data)
 
+    let vars = unite#get_source_variables(a:context)
     let _ = []
     for job in job_list
         let job_status = toupper(get(job, 'status', ''))
@@ -69,7 +71,7 @@ function! s:source.async_gather_candidates(args, context)
                     \   "word": printf("%s.[%s] %s:%s", job["id"], job_status, job["repository"], job["branch"]),
                     \   "source": s:source.name,
                     \   "kind": "source",
-                    \   "action__source_name": "jenkins/job",
+                    \   "action__source_name": vars.job_source,
                     \   "action__source_args": [a:context.source__project_name, job["id"]],
                     \ }
 
