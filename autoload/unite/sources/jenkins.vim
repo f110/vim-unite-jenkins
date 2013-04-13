@@ -5,6 +5,8 @@ call unite#util#set_default('g:unite_source_jenkins_server_host', 'localhost')
 call unite#util#set_default('g:unite_source_jenkins_server_port', '9002')
 call unite#util#set_default('g:unite_source_jenkins_relay_server_host', 'localhost')
 call unite#util#set_default('g:unite_source_jenkins_relay_server_port', '9001')
+
+let s:project_list_cache = []
 let s:source = {
             \ 'name': 'jenkins',
             \ 'hooks': {},
@@ -24,29 +26,37 @@ endfunction
 function! s:source.gather_candidates(args, context)
     let vars = unite#get_source_variables(a:context)
 
-    let a:context.source__proc = http#request#get(
-                \ vars.relay_server_host,
-                \ vars.relay_server_port,
-                \  '/')
-    let a:context.source__res = ''
+    if len(s:project_list_cache) == 0
+        let a:context.source__proc = http#request#get(
+                    \ vars.relay_server_host,
+                    \ vars.relay_server_port,
+                    \  '/')
+        let a:context.source__res = ''
+    endif
 
     return []
 endfunction
 
 function! s:source.async_gather_candidates(args, context)
-    let socket = a:context.source__proc
+    if len(s:project_list_cache) == 0
+        let vars = unite#get_source_variables(a:context)
+        let socket = a:context.source__proc
 
-    if !socket.eof
-        let a:context.source__res .= socket.read()
-        return []
+        if !socket.eof
+            let a:context.source__res .= socket.read()
+            return []
+        endif
+
+        call unite#print_source_message('got a project list', s:source.name)
+        let data = http#response#get_content(a:context.source__res)
+        let s:project_list_cache = eval(data)
+    else
+        call unite#print_source_message('from cache', s:source.name)
     endif
+
     let a:context.is_async = 0
 
-    let data = http#request#get_content(a:context.source__res)
-
-    call unite#print_source_message('got a project list', s:source.name)
-    let project_list = eval(data)
-
+    let project_list = copy(s:project_list_cache)
     return map(project_list, '{
     \   "word": v:val,
     \   "source": s:source.name,
