@@ -566,6 +566,68 @@
          "target" : "B::Utils",
          "version" : "0.21"
       },
+      "Carp" : {
+         "dist" : "Carp-1.26",
+         "mymeta" : {
+            "abstract" : "alternative warn and die for modules",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.6302, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "perl_5"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "Carp",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "Exporter" : "0",
+                     "IPC::Open3" : "1.0103",
+                     "Test::More" : "0",
+                     "strict" : "0",
+                     "warnings" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "version" : "1.26"
+         },
+         "name" : "Carp",
+         "pathname" : "Z/ZE/ZEFRAM/Carp-1.26.tar.gz",
+         "provides" : {
+            "Carp" : {
+               "file" : "Carp.pm",
+               "version" : "1.26"
+            },
+            "Carp::Heavy" : {
+               "file" : "Carp/Heavy.pm",
+               "version" : "1.26"
+            }
+         },
+         "target" : "Carp",
+         "version" : "1.26"
+      },
       "Class::Accessor::Lite" : {
          "dist" : "Class-Accessor-Lite-0.05",
          "mymeta" : {
@@ -740,16 +802,27 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.88",
+                     "Test::Requires" : "0",
+                     "constant" : "0",
+                     "version" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-class-load@rt.cpan.org",
                   "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Class-Load"
                },
                "repository" : {
                   "type" : "git",
-                  "url" : "git://github.com/autarch/class-load.git"
+                  "url" : "git://github.com/autarch/class-load.git",
+                  "web" : "https://github.com/autarch/class-load"
                }
             },
             "version" : "0.20"
@@ -777,7 +850,7 @@
                "Dave Rolsky <autarch@urth.org>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
             "license" : [
                "artistic_2"
             ],
@@ -911,13 +984,20 @@
                      "Params::Util" : "0",
                      "Sub::Install" : "0.921"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::More" : "0.96"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "homepage" : "http://github.com/rjbs/data-optlist",
                "repository" : {
-                  "url" : "http://github.com/rjbs/data-optlist"
+                  "type" : "git",
+                  "url" : "http://github.com/rjbs/data-optlist",
+                  "web" : "http://github.com/rjbs/data-optlist"
                }
             },
             "version" : "0.107",
@@ -1138,7 +1218,7 @@
                "Dave Rolsky <autarch@urth.org>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
             "license" : [
                "artistic_2"
             ],
@@ -1239,7 +1319,7 @@
                "Dave Rolsky <autarch@urth.org>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
             "license" : [
                "perl_5"
             ],
@@ -4609,6 +4689,11 @@
                      "ExtUtils::MakeMaker" : "6.30"
                   }
                },
+               "develop" : {
+                  "requires" : {
+                     "Test::Pod" : "1.41"
+                  }
+               },
                "runtime" : {
                   "requires" : {
                      "Class::Load" : "0",
@@ -4626,16 +4711,29 @@
                      "vars" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "File::Copy" : "0",
+                     "Storable" : "0",
+                     "Sys::Hostname" : "0",
+                     "Test::More" : "0.88",
+                     "Test::Output" : "0",
+                     "base" : "0",
+                     "overload" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-datetime-timezone@rt.cpan.org",
                   "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=DateTime-TimeZone"
                },
                "repository" : {
                   "type" : "git",
-                  "url" : "git://git.urth.org/DateTime-TimeZone.git"
+                  "url" : "git://git.urth.org/DateTime-TimeZone.git",
+                  "web" : "http://git.urth.org/DateTime-TimeZone.git"
                }
             },
             "version" : "1.58"
@@ -6367,7 +6465,7 @@
                   "requires" : {
                      "B::Hooks::OP::Check" : "0.19",
                      "ExtUtils::Depends" : "0.302",
-                     "ExtUtils::MakeMaker" : "6.6302",
+                     "ExtUtils::MakeMaker" : "6.64",
                      "Test::More" : "0.88"
                   }
                },
@@ -6514,6 +6612,11 @@
                      "ExtUtils::MakeMaker" : "6.30"
                   }
                },
+               "develop" : {
+                  "requires" : {
+                     "Test::Pod" : "1.41"
+                  }
+               },
                "runtime" : {
                   "requires" : {
                      "File::Spec" : "0",
@@ -6522,16 +6625,25 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::More" : "0.88",
+                     "base" : "0",
+                     "bytes" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-devel-stacktrace@rt.cpan.org",
                   "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Devel-StackTrace"
                },
                "repository" : {
                   "type" : "git",
-                  "url" : "git://git.urth.org/Devel-StackTrace.git"
+                  "url" : "git://git.urth.org/Devel-StackTrace.git",
+                  "web" : "http://git.urth.org/Devel-StackTrace.git"
                }
             },
             "version" : "1.30"
@@ -6651,6 +6763,12 @@
                   "requires" : {
                      "List::MoreUtils" : "0.12",
                      "Sub::Exporter" : "0"
+                  }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.88"
                   }
                }
             },
@@ -7468,6 +7586,10 @@
                "file" : "ExtUtils/MakeMaker/Config.pm",
                "version" : "6.64"
             },
+            "ExtUtils::Manifest" : {
+               "file" : "ExtUtils/Manifest.pm",
+               "version" : "1.60"
+            },
             "ExtUtils::Mkbootstrap" : {
                "file" : "ExtUtils/Mkbootstrap.pm",
                "version" : "6.64"
@@ -7479,14 +7601,6 @@
             "ExtUtils::testlib" : {
                "file" : "ExtUtils/testlib.pm",
                "version" : "6.64"
-            },
-            "File::Copy::Recursive" : {
-               "file" : "File/Copy/Recursive.pm",
-               "version" : "0.38"
-            },
-            "JSON::PP::Compat5006" : {
-               "file" : "JSON/PP/Compat5006.pm",
-               "version" : "1.09"
             },
             "MM" : {
                "file" : "ExtUtils/MM.pm"
@@ -8453,11 +8567,25 @@
                      "ExtUtils::MakeMaker" : "6.30"
                   }
                },
+               "develop" : {
+                  "requires" : {
+                     "Pod::Coverage::TrustPod" : "0",
+                     "Test::Pod" : "1.41",
+                     "Test::Pod::Coverage" : "1.08"
+                  }
+               },
                "runtime" : {
                   "requires" : {
                      "Carp" : "0",
                      "Encode" : "2.10",
                      "Exporter" : "5.57"
+                  }
+               },
+               "test" : {
+                  "requires" : {
+                     "File::Temp" : "0",
+                     "Scalar::Util" : "0",
+                     "Test::More" : "0.88"
                   }
                }
             },
@@ -8465,7 +8593,8 @@
             "resources" : {
                "repository" : {
                   "type" : "git",
-                  "url" : "git://github.com/madsen/io-html.git"
+                  "url" : "git://github.com/madsen/io-html.git",
+                  "web" : "http://github.com/madsen/io-html"
                }
             },
             "version" : "1.00",
@@ -8820,6 +8949,63 @@
          },
          "target" : "JSON",
          "version" : "2.57"
+      },
+      "JSON::XS" : {
+         "dist" : "JSON-XS-2.33",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "unknown"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "JSON-XS",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {
+                     "common::sense" : "0"
+                  }
+               }
+            },
+            "release_status" : "stable",
+            "version" : "2.33"
+         },
+         "name" : "JSON::XS",
+         "pathname" : "M/ML/MLEHMANN/JSON-XS-2.33.tar.gz",
+         "provides" : {
+            "JSON::XS" : {
+               "file" : "JSON/XS.pm",
+               "version" : "2.33"
+            },
+            "JSON::XS::Boolean" : {
+               "file" : "JSON/XS.pm"
+            }
+         },
+         "target" : "JSON::XS",
+         "version" : "2.33"
       },
       "LWP" : {
          "dist" : "libwww-perl-6.05",
@@ -9329,16 +9515,25 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.88",
+                     "Test::Requires" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-module-implementation@rt.cpan.org",
                   "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Module-Implementation"
                },
                "repository" : {
                   "type" : "git",
-                  "url" : "git://git.urth.org/Module-Implementation.git"
+                  "url" : "git://git.urth.org/Module-Implementation.git",
+                  "web" : "http://git.urth.org/Module-Implementation.git"
                }
             },
             "version" : "0.06"
@@ -9362,7 +9557,7 @@
                "Andrew Main (Zefram) <zefram@fysh.org>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
             "license" : [
                "perl_5"
             ],
@@ -10585,16 +10780,25 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.88",
+                     "Test::Requires" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-package-deprecationmanager@rt.cpan.org",
                   "web" : "http://rt.cpan.org/NoAuth/Bugs.html?Dist=Package-DeprecationManager"
                },
                "repository" : {
                   "type" : "git",
-                  "url" : "git://git.moose.perl.org/Package-DeprecationManager.git"
+                  "url" : "git://git.moose.perl.org/Package-DeprecationManager.git",
+                  "web" : "http://git.shadowcat.co.uk/gitweb/gitweb.cgi?p=gitmo/Package-DeprecationManager.git;a=summary"
                }
             },
             "version" : "0.13"
@@ -10644,6 +10848,14 @@
                      "ExtUtils::MakeMaker" : "6.30"
                   }
                },
+               "develop" : {
+                  "requires" : {
+                     "Pod::Coverage::TrustPod" : "0",
+                     "Test::LeakTrace" : "0",
+                     "Test::Pod" : "1.41",
+                     "Test::Pod::Coverage" : "1.08"
+                  }
+               },
                "runtime" : {
                   "recommends" : {
                      "Package::Stash::XS" : "0.26"
@@ -10661,17 +10873,29 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "File::Find" : "0",
+                     "File::Temp" : "0",
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.88",
+                     "Test::Requires" : "0",
+                     "base" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-package-stash@rt.cpan.org",
                   "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Package-Stash"
                },
                "homepage" : "http://metacpan.org/release/Package-Stash",
                "repository" : {
                   "type" : "git",
-                  "url" : "git://github.com/doy/package-stash.git"
+                  "url" : "git://github.com/doy/package-stash.git",
+                  "web" : "https://github.com/doy/package-stash"
                }
             },
             "version" : "0.34",
@@ -10987,23 +11211,47 @@
                      "ExtUtils::MakeMaker" : "6.30"
                   }
                },
+               "develop" : {
+                  "requires" : {
+                     "Pod::Coverage::TrustPod" : "0",
+                     "Test::LeakTrace" : "0",
+                     "Test::Pod" : "1.41",
+                     "Test::Pod::Coverage" : "1.08"
+                  }
+               },
                "runtime" : {
                   "requires" : {
                      "XSLoader" : "0",
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "B" : "0",
+                     "File::Find" : "0",
+                     "File::Temp" : "0",
+                     "Scalar::Util" : "0",
+                     "Symbol" : "0",
+                     "Test::Fatal" : "0",
+                     "Test::More" : "0.88",
+                     "Test::Requires" : "0",
+                     "base" : "0",
+                     "constant" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "bugtracker" : {
+                  "mailto" : "bug-package-stash-xs@rt.cpan.org",
                   "web" : "http://rt.cpan.org/Public/Dist/Display.html?Name=Package-Stash-XS"
                },
                "homepage" : "http://metacpan.org/release/Package-Stash-XS",
                "repository" : {
                   "type" : "git",
-                  "url" : "git://github.com/doy/package-stash-xs.git"
+                  "url" : "git://github.com/doy/package-stash-xs.git",
+                  "web" : "https://github.com/doy/package-stash-xs"
                }
             },
             "version" : "0.26",
@@ -11322,7 +11570,7 @@
                "Dave Rolsky, <autarch@urth.org> and Ilya Martynov <ilya@martynov.org>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
             "license" : [
                "artistic_2"
             ],
@@ -11810,7 +12058,7 @@
                "Tokuhiro Matsuno E<lt>tokuhirom AAJKLFJEF@ GMAIL COME<gt>"
             ],
             "dynamic_config" : 0,
-            "generated_by" : "Module::Build version 0.3901, CPAN::Meta::Converter version 2.120921",
+            "generated_by" : "Module::Build version 0.38, CPAN::Meta::Converter version 2.120921",
             "license" : [
                "perl_5"
             ],
@@ -12055,6 +12303,12 @@
                      "ExtUtils::MakeMaker" : "6.30"
                   }
                },
+               "develop" : {
+                  "requires" : {
+                     "Test::Pod" : "1.41",
+                     "version" : "0.9901"
+                  }
+               },
                "runtime" : {
                   "requires" : {
                      "Carp" : "0",
@@ -12064,13 +12318,26 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Exporter" : "0",
+                     "File::Find" : "0",
+                     "File::Temp" : "0",
+                     "Test::More" : "0.96",
+                     "base" : "0",
+                     "overload" : "0",
+                     "subs" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "homepage" : "https://github.com/rjbs/sub-exporter",
                "repository" : {
-                  "url" : "https://github.com/rjbs/sub-exporter.git"
+                  "type" : "git",
+                  "url" : "https://github.com/rjbs/sub-exporter.git",
+                  "web" : "https://github.com/rjbs/sub-exporter"
                }
             },
             "version" : "0.985",
@@ -12834,13 +13101,22 @@
                      "strict" : "0",
                      "warnings" : "0"
                   }
+               },
+               "test" : {
+                  "requires" : {
+                     "Test::Builder::Tester" : "0",
+                     "Test::More" : "0.47",
+                     "overload" : "0"
+                  }
                }
             },
             "release_status" : "stable",
             "resources" : {
                "homepage" : "https://github.com/rjbs/test-fatal",
                "repository" : {
-                  "url" : "https://github.com/rjbs/test-fatal.git"
+                  "type" : "git",
+                  "url" : "https://github.com/rjbs/test-fatal.git",
+                  "web" : "https://github.com/rjbs/test-fatal"
                }
             },
             "version" : "0.010",
@@ -14106,6 +14382,58 @@
          },
          "target" : "XML::SAX::Base",
          "version" : "1.08"
+      },
+      "common::sense" : {
+         "dist" : "common-sense-3.6",
+         "mymeta" : {
+            "abstract" : "unknown",
+            "author" : [
+               "unknown"
+            ],
+            "dynamic_config" : 0,
+            "generated_by" : "ExtUtils::MakeMaker version 6.62, CPAN::Meta::Converter version 2.112150, CPAN::Meta::Converter version 2.120921",
+            "license" : [
+               "unknown"
+            ],
+            "meta-spec" : {
+               "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+               "version" : "2"
+            },
+            "name" : "common-sense",
+            "no_index" : {
+               "directory" : [
+                  "t",
+                  "inc"
+               ]
+            },
+            "prereqs" : {
+               "build" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "configure" : {
+                  "requires" : {
+                     "ExtUtils::MakeMaker" : "0"
+                  }
+               },
+               "runtime" : {
+                  "requires" : {}
+               }
+            },
+            "release_status" : "stable",
+            "version" : "3.6"
+         },
+         "name" : "common::sense",
+         "pathname" : "M/ML/MLEHMANN/common-sense-3.6.tar.gz",
+         "provides" : {
+            "common::sense" : {
+               "file" : "common/sense.pm",
+               "version" : "3.6"
+            }
+         },
+         "target" : "common::sense",
+         "version" : "3.6"
       },
       "invoker" : {
          "dist" : "invoker-0.34",

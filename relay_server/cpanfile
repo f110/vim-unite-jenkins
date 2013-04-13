@@ -3,3 +3,5 @@ requires 'XML::SAX' => '0.99';
 requires 'Router::Simple' => '0.14';
 requires 'Net::Jenkins' => '0.07';
 requires 'LWP::Protocol::https';
+requires 'List::MoreUtils';
+requires 'JSON::XS';
