@@ -8,8 +8,3 @@ endfunction
 function! http#request#get(host, port, path)
     return s:http_request(a:host, a:port, "GET", a:path)
 endfunction
-
-function! http#request#get_content(result)
-    let idx = stridx(a:result, "\r\n\r\n") + 4
-    return a:result[idx : ]
-endfunction
