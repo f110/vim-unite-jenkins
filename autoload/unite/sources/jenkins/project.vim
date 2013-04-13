@@ -91,7 +91,6 @@ function! s:source.async_gather_candidates(args, context)
     return _
 endfunction
 
-call unite#define_source(s:source)
-"function! unite#sources#jenkins#project#define()
-    "return s:source
-"endfunction
+function! unite#sources#jenkins#project#define()
+    return s:source
+endfunction

@@ -4,7 +4,7 @@ function! http#response#get_content(result)
 endfunction
 
 function! http#response#is_success(result)
-    let lines = split(result, "\n")
+    let lines = split(a:result, "\n")
 
     for line in lines
         if stridx(line, "HTTP/") == 0

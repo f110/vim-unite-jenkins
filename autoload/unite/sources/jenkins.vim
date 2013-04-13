@@ -67,5 +67,29 @@ function! s:source.async_gather_candidates(args, context)
 endfunction
 
 function! unite#sources#jenkins#define()
-    return s:source
+    let sources = []
+    for command in s:get_commands()
+        let source = call(s:to_define_func(command), [])
+        if type({}) == type(source)
+            call add(sources, source)
+        elseif type([]) == type(source)
+            call extend(sources, source)
+        endif
+        unlet source
+    endfor
+    return add(sources, s:source)
+endfunction
+
+function! s:get_commands()
+    return map(
+            \   split(
+            \     globpath(&runtimepath, 'autoload/unite/sources/jenkins/*.vim'),
+            \     '\n'
+            \   ),
+            \   'fnamemodify(v:val, ":t:r")'
+            \ )
+endfunction
+
+function! s:to_define_func(command)
+    return 'unite#sources#jenkins#' . a:command . '#define'
 endfunction
