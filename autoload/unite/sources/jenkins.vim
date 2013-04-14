@@ -27,10 +27,13 @@ function! s:source.gather_candidates(args, context)
     let vars = unite#get_source_variables(a:context)
 
     if len(s:project_list_cache) == 0
-        let a:context.source__proc = http#request#get(
+        let socket = http#request#get(
                     \ vars.relay_server_host,
                     \ vars.relay_server_port,
                     \  '/')
+        if exists('socket')
+            let a:context.source__proc = socket
+        endif
         let a:context.source__res = ''
     endif
 
@@ -39,6 +42,12 @@ endfunction
 
 function! s:source.async_gather_candidates(args, context)
     if len(s:project_list_cache) == 0
+        if !has_key(a:context, 'source__proc')
+            call unite#print_source_error('Could not open socket', s:source.name)
+            let a:context.is_async = 0
+            return []
+        endif
+
         let vars = unite#get_source_variables(a:context)
         let socket = a:context.source__proc
 
@@ -47,7 +56,13 @@ function! s:source.async_gather_candidates(args, context)
             return []
         endif
 
-        call unite#print_source_message('got a project list', s:source.name)
+        if !http#response#is_success(a:context.source__res)
+            call unite#print_source_error('could not get project list', s:source.name)
+            let a:context.is_async = 0
+            return []
+        endif
+
+        call unite#print_source_message('done', s:source.name)
         let data = http#response#get_content(a:context.source__res)
         let s:project_list_cache = eval(data)
     else

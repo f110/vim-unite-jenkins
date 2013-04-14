@@ -37,10 +37,13 @@ function! s:source.gather_candidates(args, context)
     let vars = unite#get_source_variables(a:context)
     let project_name = get(a:args, 0)
 
-    let a:context.source__proc = http#request#get(
+    let socket = http#request#get(
                 \ vars.relay_server_host,
                 \ vars.relay_server_port,
                 \  printf("/%s", project_name))
+    if exists('socket')
+        let a:context.source__proc = socket
+    endif
     let a:context.source__project_name = project_name
     let a:context.source__res = ''
 
@@ -48,6 +51,11 @@ function! s:source.gather_candidates(args, context)
 endfunction
 
 function! s:source.async_gather_candidates(args, context)
+    if !has_key(a:context, 'source__proc')
+        call unite#print_source_error('Could not open socket', s:source.name)
+        let a:context.is_async = 0
+        return []
+    endif
     let socket = a:context.source__proc
 
     if !socket.eof
@@ -57,13 +65,12 @@ function! s:source.async_gather_candidates(args, context)
 
     let a:context.is_async = 0
 
-    let done_message = 'get job list'
-    call unite#print_source_message(done_message, s:source.name)
-
     if !http#response#is_success(a:context.source__res)
-        call unite#print_error_message("FAIL", s:source.name)
+        call unite#print_error_message("could not get job list", s:source.name)
         return []
     endif
+
+    call unite#print_source_message('done', s:source.name)
     let data = http#response#get_content(a:context.source__res)
     let job_list = eval(data)
 

@@ -1,5 +1,10 @@
 function! s:http_request(host, port, method, path)
-    let socket = vimproc#socket_open(a:host, a:port)
+    try
+        let socket = vimproc#socket_open(a:host, a:port)
+    catch
+        return
+    endtry
+
     call socket.write(printf("%s %s HTTP/1.0\r\n\r\n", a:method, a:path))
 
     return socket
