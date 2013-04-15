@@ -48,7 +48,7 @@ vimrc に
 # どうやって動作しているの？
 
 <pre>
-Jenkins <=> relay server <=> vim
+Jenkins <---http---> relay server <---JSON API---> vim
 </pre>
 
 このように vim と jenkins の間に中継用のサーバーを設けることで実現している。
